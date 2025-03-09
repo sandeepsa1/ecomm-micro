@@ -1,0 +1,30 @@
+version: "3.8"
+
+services:
+  user-service:
+    build: ./user-service  # Ensure this matches your folder structure
+    container_name: user-service
+    ports:
+      - "8000:8000"
+    depends_on:
+      - mysql
+    environment:
+      - DATABASE_URL=mysql+pymysql://root:password@mysql:3306/userdb
+    networks:
+      - mynetwork
+
+  mysql:
+    image: mysql:8
+    container_name: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: userdb
+    ports:
+      - "3307:3306"  # Avoid conflict with local MySQL
+    networks:
+      - mynetwork
+
+networks:
+  mynetwork:
+    driver: bridge

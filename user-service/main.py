@@ -5,7 +5,8 @@ from sqlalchemy.orm import sessionmaker, Session
 from pydantic import BaseModel
 
 # Database Configuration
-DATABASE_URL = "mysql+pymysql://root:password@localhost/userdb"
+# DATABASE_URL = "mysql+pymysql://root:password@localhost/userdb"
+DATABASE_URL = "mysql+pymysql://root:password@mysql:3306/userdb"
 engine = create_engine(DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base = declarative_base()

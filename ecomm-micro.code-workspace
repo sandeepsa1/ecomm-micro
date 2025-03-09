@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": "cart-service"
+		},
+		{
+			"path": "order-service"
+		},
+		{
+			"path": "product-service"
+		},
+		{
+			"path": "user-service"
+		}
+	],
+	"settings": {}
+}

@@ -1,0 +1,23 @@
+# Ignore Python artifacts
+__pycache__/
+*.pyc
+venv/
+
+# Ignore Node.js artifacts
+node_modules/
+npm-debug.log
+
+# Ignore Go artifacts
+go.sum
+go.mod
+bin/
+
+# Ignore .NET artifacts
+bin/
+obj/
+*.db
+
+# Ignore Docker & Kubernetes
+*.log
+docker-compose.override.yml
+.kube/
