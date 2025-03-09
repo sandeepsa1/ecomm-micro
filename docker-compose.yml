@@ -48,6 +48,28 @@ services:
     ports:
       - "8001:80"
 
+  product-catalog-service:
+    build: ./product-catalog-service
+    container_name: product-catalog-service
+    ports:
+      - "5000:5000"
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/productCatalogDB
+    depends_on:
+      - mongo
+    networks:
+      - mynetwork
+
+  mongo:
+    image: mongo:6.0
+    container_name: mongo
+    restart: always
+    ports:
+      - "27017:27017"
+    networks:
+      - mynetwork
+
+
 networks:
   mynetwork:
     driver: bridge
